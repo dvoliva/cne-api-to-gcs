@@ -9,6 +9,7 @@ PROJECT_ID = "pipeline-dta"  # Replace with your project ID
 BUCKET_NAME = "archivos-pipeline-dta"  # Replace with your bucket name
 JSON_FILE_NAME = "estaciones_data.json"  # Name of the JSON file in Cloud Storage
 
+
 # --- Credentials (Consider using environment variables or a more secure method) ---
 email = "venegasolivad@gmail.com"
 password = "brsWBht4u7Kgat2"

@@ -29,7 +29,7 @@ jobs:
           pip install requests google-cloud-storage
 
       - name: Ejecutar el script de Python
-        run: python test-extract.py # Asegúrate de reemplazar 'tu_script.py' con el nombre de tu archivo Python
+        run: python test-workflow.py # Asegúrate de reemplazar 'tu_script.py' con el nombre de tu archivo Python
 
       - name: Imprimir mensaje de finalización
         run: echo "El pipeline de CNE se ha ejecutado exitosamente."

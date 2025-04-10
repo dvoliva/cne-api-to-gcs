@@ -40,14 +40,12 @@ def guardar_ndjson_en_cloud_storage(data, ruta_archivo, bucket_name, credentials
             f.write(json.dumps(str(data), ensure_ascii=False) + "\n")
 
 if __name__ == "__main__":
-    # Ingresa tus credenciales de la API directamente aquí (solo para pruebas locales)
-    email = "venegasolivad@gmail.com"  # Reemplaza con tu correo
-    password = "brsWBht4u7Kgat2"  # Reemplaza con tu contraseña
+    # Obtiene las credenciales del entorno
+    email = os.environ.get("EMAIL")
+    password = os.environ.get("PASSWORD")
     ruta_archivo_ndjson = "estaciones.json"
-    bucket_name = "archivos-pipeline-dta"  # Reemplaza con el nombre de tu bucket en Google Cloud Storage
-
-    # **IMPORTANTE: Reemplaza con la ruta real a tu archivo de credenciales JSON**
-    credentials_file = ""
+    bucket_name = "archivos-pipeline-dta"
+    credentials_file = os.environ.get("CREDENTIALS_FILE")
 
     try:
         token = obtener_token(email, password)
@@ -67,4 +65,3 @@ if __name__ == "__main__":
         print(f"Error HTTP: {e}")
     except Exception as e:
         print(f"Error: {e}")
-

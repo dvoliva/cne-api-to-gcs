@@ -1,0 +1,35 @@
+name: Pipeline CNE
+
+on:
+  push:
+    branches:
+      - workflow-github # Se ejecuta solo cuando hay un push en la rama workflow-github
+
+jobs:
+  ejecutar_pipeline:
+    runs-on: ubuntu-latest
+    env:
+      EMAIL: ${{ secrets.EMAIL }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      CREDENTIALS_FILE: ${{ secrets.CREDENTIALS_FILE }}
+      BUCKET_NAME: "archivos-pipeline-dta" # Define el nombre del bucket aquí
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests google-cloud-storage
+
+      - name: Ejecutar el script de Python
+        run: python test-extract.py # Asegúrate de reemplazar 'tu_script.py' con el nombre de tu archivo Python
+
+      - name: Imprimir mensaje de finalización
+        run: echo "El pipeline de CNE se ha ejecutado exitosamente."

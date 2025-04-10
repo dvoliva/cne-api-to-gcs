@@ -28,6 +28,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests google-cloud-storage
 
+      - name: Verificar variables de entorno
+        run: |
+          if [ -z "$EMAIL" ] || [ -z "$PASSWORD" ] || [ -z "$CREDENTIALS_FILE" ]; then
+            echo "Error: Las variables de entorno EMAIL, PASSWORD o CREDENTIALS_FILE no están configuradas."
+            exit 1
+          fi
+
       - name: Ejecutar el script de Python
         run: python test-workflow.py # Asegúrate de reemplazar 'tu_script.py' con el nombre de tu archivo Python
 

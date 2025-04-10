@@ -47,6 +47,11 @@ if __name__ == "__main__":
     bucket_name = "archivos-pipeline-dta"
     credentials_file = os.environ.get("CREDENTIALS_FILE")
 
+    # Validar que las variables de entorno estén configuradas
+    if not email or not password or not credentials_file:
+        print("Error: Las variables de entorno EMAIL, PASSWORD o CREDENTIALS_FILE no están configuradas.")
+        exit(1)
+
     try:
         token = obtener_token(email, password)
         estaciones_data = obtener_estaciones(token)

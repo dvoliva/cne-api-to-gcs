@@ -8,4 +8,3 @@ with open("marcas_combustible.json", "r", encoding="utf-8") as f:
 with open("marcas_ndjson.json", "w", encoding="utf-8") as f:
     for obj in data:
         f.write(json.dumps(obj, ensure_ascii=False) + "\n")
-        

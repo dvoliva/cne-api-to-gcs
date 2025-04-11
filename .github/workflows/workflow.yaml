@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - workflow-github # Se ejecuta solo cuando hay un push en la rama workflow-github
+  schedule:
+      - cron: '20 14 * * *'
 
 jobs:
   ejecutar_pipeline:

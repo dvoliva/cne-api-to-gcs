@@ -25,7 +25,7 @@ def obtener_estaciones(token):
     return response.json()
 
 def guardar_ndjson_en_cloud_storage(data, ruta_archivo, bucket_name, credentials_json):
-    """Guarda los datos en formato NDJSON en Google Cloud Storage usando credenciales explícitas."""
+    """Guarda los datos en formato NDJSON en Google Cloud Storage."""
     credentials_dict = json.loads(credentials_json)  # Convierte el JSON de las credenciales a un diccionario
     storage_client = storage.Client.from_service_account_info(credentials_dict)
     bucket = storage_client.bucket(bucket_name)

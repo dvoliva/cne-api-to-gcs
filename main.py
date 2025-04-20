@@ -65,7 +65,7 @@ if __name__ == "__main__":
             estaciones_lista = [estaciones_data]
 
         guardar_ndjson_en_cloud_storage(estaciones_lista, ruta_archivo_ndjson, bucket_name, credentials_file)
-        print(f"Datos guardados en {ruta_archivo_ndjson} en Google Cloud Storage (bucket: {bucket_name}) usando credenciales explícitas.")
+        print(f"Datos guardados en {ruta_archivo_ndjson} en Google Cloud Storage (bucket: {bucket_name}).")
 
     except requests.exceptions.HTTPError as e:
         print(f"Error HTTP: {e}")

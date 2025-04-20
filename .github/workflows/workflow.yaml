@@ -1,11 +1,10 @@
 name: Pipeline CNE
 
 on:
-  push:
-    branches:
-      - workflow-github # Se ejecuta solo cuando hay un push en la rama workflow-github
   schedule:
-      - cron: '*/5 * * * *'
+    # al minuto 50 de cada hora
+    - cron:  '59 03 * * *'
+  workflow_dispatch:
 
 jobs:
   ejecutar_pipeline:
@@ -43,3 +42,4 @@ jobs:
 
       - name: Imprimir mensaje de finalización
         run: echo "El pipeline de CNE se ha ejecutado exitosamente."
+        

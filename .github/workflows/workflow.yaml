@@ -3,7 +3,7 @@ name: Pipeline CNE
 on:
   schedule:
     # al minuto 50 de cada hora
-    - cron:  '59 03 * * *'
+    - cron:  '59 23 * * 1'
   workflow_dispatch:
 
 jobs:
@@ -41,5 +41,4 @@ jobs:
         run: python $SCRIPT_NAME
 
       - name: Imprimir mensaje de finalización
-        run: echo "El pipeline de CNE se ha ejecutado exitosamente."
-        
+        run: echo "El pipeline de CNE se ha ejecutado exitosamente."        
